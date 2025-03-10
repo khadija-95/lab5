@@ -48,13 +48,13 @@ public class EventController {
         return new ApiResponse("event not found");
     }
     @GetMapping("/search/{id}")
-    public ArrayList<Event> searchEvent(@PathVariable String id){
-        ArrayList<Event> result = new ArrayList<>();
+    public Event searchEvent(@PathVariable String id){
+
         for(Event event:events){
             if(event.getId().equals(id)){
-                result.add(event);
+                return event;
             }
         }
-        return result;
+        return null;
     }
 }
